@@ -3,6 +3,9 @@ import java.applet.*;
 import java.awt.event.*;
 
 public class HelloWorld extends Frame {
+
+
+
     public static void main (String [] argv){
 	HelloWorld h = new HelloWorld();
     }
@@ -22,7 +25,7 @@ public class HelloWorld extends Frame {
         GridLayout grid1= new GridLayout(6,2);// кількість стовбців, кількість рядків
         setLayout(grid1);
 	
-        add(new Label("Завантажити вихідний ряд цілих чисел"));
+        add(new Label("Завантажити вхідний ряд цілих чисел "));
 	Button BtDownload = new Button("Обзор");
         add(BtDownload );
 
@@ -34,8 +37,8 @@ public class HelloWorld extends Frame {
 	//Button BtName = new Button("SetSurname  ");
         //add(BtName);
 
-        add(new Label("Підрахувати кількість пар які зустрічаються в вихідному ряді"));
-	Button Diapazon = new Button("Визначити");
+        add(new Label("Підрахувати кількість пар (Vk*Vp),k,p є [0,V] "));
+	Button Diapazon = new Button("Розрахувати");
 	add(Diapazon );
         
 	//TextField Diapazon=new TextField("Підрахувати");
@@ -58,7 +61,10 @@ public class HelloWorld extends Frame {
 	    public void actionPerformed(ActionEvent e) {
 		surname.setText("енко");
 		//System.exit(0);
+
 	    }
+
+
 	});
 
 	setVisible(true);
