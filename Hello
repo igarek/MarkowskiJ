@@ -1,63 +1,103 @@
- import java.awt.*;
+import java.awt.*;
 import java.applet.*;
 import java.awt.event.*;
 
 public class HelloWorld extends Frame {
+FileDialog dialogLoad;
 
-
+    protected TextField inFileName;
+    protected TextField outFileName;
+    public TextField znachennya;
 
     public static void main (String [] argv){
-	HelloWorld h = new HelloWorld();
+HelloWorld h = new HelloWorld();
+
     }
 
     TextField surname;
     public class Listener1 implements ActionListener{
-	    public void actionPerformed(ActionEvent e) {
-		surname.setText("енко");
-		//System.exit(0);
-	    }
+	public void actionPerformed(ActionEvent e) {
+	surname.setText("енко");
+//System.exit(0);
+	}
    }
 
+	Frame myWindow;
 
     public HelloWorld(){
-	setTitle("Hello World!");		
+	setTitle("Сalculate the HelloWorld");	
 	setSize(800, 600);
-        GridLayout grid1= new GridLayout(5,2);// кількість стовбців, кількість рядків
+        GridLayout grid1= new GridLayout(7,3);// кількість стовбців, кількість рядків
         setLayout(grid1);
-	
-        add(new Label("Завантажити вхідний ряд цілих чисел "));
+
+        add(new Label("Завантажити вхідний ряд цілих чисел"));
+	inFileName=new TextField("...");
+        add(inFileName);
 	Button BtDownload = new Button("Обзор");
         add(BtDownload );
 
-        add(new Label("Визначити діапазон в якому змінюються стани [0,V]"));
-	Button znachennya = new Button("Визначити");
-	add(znachennya );
+        add(new Label("Вказати діапазон зміни станів [0,V]"));
+
+	add(new Label(""));
+
+	 znachennya=new TextField("1");
+        add(znachennya);
+
+       	
 
 
-        add(new Label("Підрахувати кількість пар (Vk*Vp),k,p є [0,V] "));
+	add(new Label("Підрахувати кількість пар (Vk*Vp),k,p є [0,V] "));
 	Button Diapazon = new Button("Розрахувати");
+	add(new Label(""));
 	add(Diapazon );
-        
-	
-        add(new Label("Кількість станів, k"));
+ 
+
+ 	add(new Label("Кількість станів, k"));
         Button Sostoyanie = new Button("Визначити кількість станів");
+	add(new Label(""));
         add(Sostoyanie);
+
+       add(new Label("Завантажити вихідний ряд"));
+	 outFileName=new TextField("...");
+        add(outFileName);
+	Button BtDownload2 = new Button("Обзор");
+        add(BtDownload2 );
+
       
-	
+
+	Button BtResult = new Button("Порахувати ентропію");
+ 	add(new Label(""));
+	add(BtResult);
+        add(new Label(""));
+        
 
 	Panel hello = new Panel();
 	add("Center", hello);
+        myWindow=this;
         
-	Button button = new Button("завантажити розрахований марківський процес");
-	add(button);
-	button.addActionListener(new ActionListener() {
-	    public void actionPerformed(ActionEvent e) {
-		surname.setText("енко");
-		//System.exit(0);
+	BtDownload.addActionListener(new ActionListener() {
+	public void actionPerformed(ActionEvent e) {
+	dialogLoad = new FileDialog(myWindow, "Вибір файла", FileDialog.LOAD);
+	dialogLoad.show();
+	String file = dialogLoad.getFile();
+	String directory = dialogLoad.getDirectory();
+	String fullFileName = directory + file;
+	inFileName.setText(fullFileName);
+   	}
+	});
 
-	    }
 
+        BtDownload2.addActionListener(new ActionListener() {
+	public void actionPerformed(ActionEvent e) {
+	dialogLoad = new FileDialog(myWindow, "Вибір файла", FileDialog.SAVE);
+	dialogLoad.show();
+	String file = dialogLoad.getFile();
+	String directory = dialogLoad.getDirectory();
+	String fullFileName = directory + file;
+	 outFileName.setText(fullFileName);
 
+//System.exit(0);
+	   }
 	});
 
 	setVisible(true);
@@ -71,3 +111,4 @@ public class HelloWorld extends Frame {
 	    }
 	});
     }
+}
