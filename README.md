@@ -22,7 +22,7 @@ public class HelloWorld extends Frame {
     public HelloWorld(){
 	setTitle("Hello World!");		
 	setSize(800, 600);
-        GridLayout grid1= new GridLayout(6,2);// кількість стовбців, кількість рядків
+        GridLayout grid1= new GridLayout(7,2);// кількість стовбців, кількість рядків
         setLayout(grid1);
 	
         add(new Label("Завантажити вхідний ряд цілих чисел "));
@@ -32,19 +32,13 @@ public class HelloWorld extends Frame {
         add(new Label("Визначити діапазон в якому змінюються стани [0,V]"));
 	Button znachennya = new Button("Визначити");
 	add(znachennya );
-	//TextField znachennya=new TextField("10");
-        //add(znachennya);
-	//Button BtName = new Button("SetSurname  ");
-        //add(BtName);
+
 
         add(new Label("Підрахувати кількість пар (Vk*Vp),k,p є [0,V] "));
 	Button Diapazon = new Button("Розрахувати");
 	add(Diapazon );
         
-	//TextField Diapazon=new TextField("Підрахувати");
-        //add(Diapazon);
-        //	Button BtFathersName = new Button("SetSurname  ");
-        //add(BtFathersName);
+	
         add(new Label("Кількість станів, k"));
         TextField Sostoyanie=new TextField("6");
         add(Sostoyanie);
@@ -54,7 +48,7 @@ public class HelloWorld extends Frame {
 
 	Panel hello = new Panel();
 	add("Center", hello);
-         //
+        
 	Button button = new Button("OK");
 	add(button);
 	button.addActionListener(new ActionListener() {
