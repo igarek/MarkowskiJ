@@ -30,44 +30,33 @@ HelloWorld h = new HelloWorld();
         GridLayout grid1= new GridLayout(7,3);// кількість стовбців, кількість рядків
         setLayout(grid1);
 
-        add(new Label("Завантажити вхідний ряд цілих чисел"));
-	inFileName=new TextField("...");
+       add(new Label("Завантажити вхідний ряд цілих чисел"));
+	 inFileName=new TextField("...");
         add(inFileName);
 	Button BtDownload = new Button("Обзор");
         add(BtDownload );
 
-        add(new Label("Вказати діапазон зміни станів [0,V]"));
+       add(new Label("Вказати діапазон зміни станів [0,V]"));
 
-	add(new Label(""));
+add(new Label(""));
 
 	 znachennya=new TextField("1");
         add(znachennya);
 
-       	
-
-
-	add(new Label("Підрахувати кількість пар (Vk*Vp),k,p є [0,V] "));
+       	add(new Label("Підрахувати кількість пар (Vk*Vp),k,p є [0,V] "));
 	Button Diapazon = new Button("Розрахувати");
-	add(new Label(""));
+add(new Label(""));
 	add(Diapazon );
  
 
- 	add(new Label("Кількість станів, k"));
+ add(new Label("Кількість станів, k"));
         Button Sostoyanie = new Button("Визначити кількість станів");
-	add(new Label(""));
+add(new Label(""));
         add(Sostoyanie);
 
-       add(new Label("Завантажити вихідний ряд"));
-	 outFileName=new TextField("...");
-        add(outFileName);
-	Button BtDownload2 = new Button("Обзор");
-        add(BtDownload2 );
-
-      
-
-	Button BtResult = new Button("Порахувати ентропію");
- 	add(new Label(""));
-	add(BtResult);
+    Button BtResult = new Button("Порахувати Марківський процес");
+ add(new Label(""));
+add(BtResult);
         add(new Label(""));
         
 
@@ -86,19 +75,6 @@ HelloWorld h = new HelloWorld();
    	}
 	});
 
-
-        BtDownload2.addActionListener(new ActionListener() {
-	public void actionPerformed(ActionEvent e) {
-	dialogLoad = new FileDialog(myWindow, "Вибір файла", FileDialog.SAVE);
-	dialogLoad.show();
-	String file = dialogLoad.getFile();
-	String directory = dialogLoad.getDirectory();
-	String fullFileName = directory + file;
-	 outFileName.setText(fullFileName);
-
-//System.exit(0);
-	   }
-	});
 
 	setVisible(true);
 	//grid1.setRows(6);
