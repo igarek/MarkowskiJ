@@ -22,7 +22,7 @@ public class HelloWorld extends Frame {
     public HelloWorld(){
 	setTitle("Hello World!");		
 	setSize(800, 600);
-        GridLayout grid1= new GridLayout(7,2);// кількість стовбців, кількість рядків
+        GridLayout grid1= new GridLayout(5,2);// кількість стовбців, кількість рядків
         setLayout(grid1);
 	
         add(new Label("Завантажити вхідний ряд цілих чисел "));
@@ -40,16 +40,15 @@ public class HelloWorld extends Frame {
         
 	
         add(new Label("Кількість станів, k"));
-        TextField Sostoyanie=new TextField("6");
+        Button Sostoyanie = new Button("Визначити кількість станів");
         add(Sostoyanie);
       
-	Button BtResult = new Button("Розрахувати Марківський процес");
-        add(BtResult);
+	
 
 	Panel hello = new Panel();
 	add("Center", hello);
         
-	Button button = new Button("OK");
+	Button button = new Button("завантажити розрахований марківський процес");
 	add(button);
 	button.addActionListener(new ActionListener() {
 	    public void actionPerformed(ActionEvent e) {
@@ -72,4 +71,3 @@ public class HelloWorld extends Frame {
 	    }
 	});
     }
-}
