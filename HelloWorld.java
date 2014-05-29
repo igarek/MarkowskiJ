@@ -40,20 +40,7 @@ HelloWorld h = new HelloWorld();
         add(BtDownload );
 
 
-	BtDownload.addActionListener(new ActionListener() {
-	public void actionPerformed(ActionEvent e) {
-	MyFileClass fc = new MyFileClass();
-	fc.openFile(inFile.getText());
-	fc.readFile();
-	fc.out();
-	fc.writeFile(outFile.getText());
-	double [] mas = fc.getData();
-	inFile.setText(new Double(mas[3]).toString());
-	//System.exit(0);
-
-	}
-});
-
+	
 
        add(new Label("Вказати діапазон зміни станів [0,V]"));
 
@@ -83,6 +70,20 @@ add(new Label(""));
 Button BtResult = new Button("Порахувати Марківський процес");
  add(new Label(""));
 add(BtResult);
+BtResult.addActionListener(new ActionListener() {
+	public void actionPerformed(ActionEvent e) {
+	MyFileClass fc = new MyFileClass();
+	fc.openFile(inFileName.getText());
+	fc.readFile();
+	fc.out();
+	fc.writeFile(outFileName.getText());
+	double [] mas = fc.getData();
+	inFileName.setText(new Double(mas[3]).toString());
+	//System.exit(0);
+
+	}
+});
+
         add(new Label(""));
         
 
