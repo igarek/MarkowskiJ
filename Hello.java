@@ -10,7 +10,7 @@ FileDialog dialogLoad;
     public TextField znachennya;
 
     public static void main (String [] argv){
-    	HelloWorld h = new HelloWorld();
+HelloWorld h = new HelloWorld();
 
     }
 
@@ -18,7 +18,7 @@ FileDialog dialogLoad;
     public class Listener1 implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 	surname.setText("енко");
-		//System.exit(0);
+//System.exit(0);
 	}
    }
 
@@ -30,33 +30,59 @@ FileDialog dialogLoad;
         GridLayout grid1= new GridLayout(7,3);// кількість стовбців, кількість рядків
         setLayout(grid1);
 
-       	add(new Label("Завантажити вхідний ряд цілих чисел"));
+
+
+
+       add(new Label("Завантажити вхідний ряд цілих чисел"));
 	 inFileName=new TextField("...");
         add(inFileName);
 	Button BtDownload = new Button("Обзор");
         add(BtDownload );
 
-	 add(new Label("Вказати діапазон зміни станів [0,V]"));
-	
-	add(new Label(""));
+
+	BtDownload.addActionListener(new ActionListener() {
+	public void actionPerformed(ActionEvent e) {
+	MyFileClass fc = new MyFileClass();
+	fc.openFile(inFile.getText());
+	fc.readFile();
+	fc.out();
+	fc.writeFile(outFile.getText());
+	double [] mas = fc.getData();
+	inFile.setText(new Double(mas[3]).toString());
+	//System.exit(0);
+
+	}
+});
+
+
+       add(new Label("Вказати діапазон зміни станів [0,V]"));
+
+add(new Label(""));
 
 	 znachennya=new TextField("1");
         add(znachennya);
 
-       	add(new Label("Підрахувати кількість пар (Vk*Vp),k,p є [0,V] "));
+       	
+
+
+add(new Label("Підрахувати кількість пар (Vk*Vp),k,p є [0,V] "));
 	Button Diapazon = new Button("Розрахувати");
-	add(new Label(""));
+add(new Label(""));
 	add(Diapazon );
  
 
- 	add(new Label("Кількість станів, k"));
+ add(new Label("Кількість станів, k"));
         Button Sostoyanie = new Button("Визначити кількість станів");
-	add(new Label(""));
+add(new Label(""));
         add(Sostoyanie);
 
-    	Button BtResult = new Button("Порахувати Марківський процес");
- 	add(new Label(""));
-	add(BtResult);
+    
+
+      
+
+Button BtResult = new Button("Порахувати Марківський процес");
+ add(new Label(""));
+add(BtResult);
         add(new Label(""));
         
 
@@ -75,6 +101,8 @@ FileDialog dialogLoad;
    	}
 	});
 
+
+        
 
 	setVisible(true);
 	//grid1.setRows(6);
